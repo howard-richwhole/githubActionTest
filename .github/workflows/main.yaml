@@ -26,8 +26,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '10.x'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
+
+      - name: 快取
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
       - name: 產生版本號
         id: generate_build_version
@@ -47,6 +52,9 @@ jobs:
       - name: 結果
         if: ${{ steps.generate_build_version.outputs.changed_lockfile }}
         run: npm ci
+
+
+
 
 
 
