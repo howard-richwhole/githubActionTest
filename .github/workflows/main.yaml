@@ -54,6 +54,9 @@ jobs:
         if: ${{ steps.generate_build_version.outputs.changed_lockfile }}
         run: npm ci
 
+      - name: 結果
+        run: npm ci
+
 
 
 
