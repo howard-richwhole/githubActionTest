@@ -42,9 +42,7 @@ jobs:
           echo "$IMAGE_NAME:$BUILD_VERSION"
           echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep 'package-lock\.json'`"
           ls
-          cd ..
-          ls
-          cd /
+          cd /home/runner/work/githubActionTest/githubActionTest
           ls
 
       - name: 變數
