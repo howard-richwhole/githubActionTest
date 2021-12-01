@@ -28,9 +28,7 @@ jobs:
           BUILD_VERSION=1.0.`git rev-list HEAD --count`.$GITHUB_RUN_NUMBER
           echo "::set-output name=build_version::$BUILD_VERSION"
           echo "$IMAGE_NAME:$BUILD_VERSION"
-          echo `git diff-tree --no-commit-id --name-only HEAD``
-          CHANGED_LOCKFILE=`git diff-tree --no-commit-id --name-only HEAD | grep 'package-lock\.json'`
-          echo "::set-output name=changed_lockfile::$CHANGED_LOCKFILE"
+          echo `git diff-tree --no-commit-id --name-only HEAD`
 
       - name: 初始化node
         uses: actions/setup-node@v2
