@@ -30,7 +30,7 @@ jobs:
       - name: 快取
         uses: actions/cache@v2
         with:
-          path: node_modules
+          path: ${{github.workspace}}/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
@@ -41,8 +41,7 @@ jobs:
           echo "::set-output name=build_version::$BUILD_VERSION"
           echo "$IMAGE_NAME:$BUILD_VERSION"
           echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep 'package-lock\.json'`"
-          ls
-          cd node_modules
+          echo ${{github.workspace}}
           ls
 
       - name: 變數
