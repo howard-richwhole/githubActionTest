@@ -31,7 +31,7 @@ jobs:
           echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep '\.github`"
 
       - name: 變數
-        run: echo $steps.generate_build_version.outputs.changed_lockfile
+        run: echo ${{steps.generate_build_version.outputs.changed_lockfile}}
 
       - name: 結果
         if: ${{ steps.generate_build_version.outputs.changed_lockfile }}
