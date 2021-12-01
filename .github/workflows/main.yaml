@@ -42,6 +42,10 @@ jobs:
           echo "$IMAGE_NAME:$BUILD_VERSION"
           echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep 'package-lock\.json'`"
           ls
+          cd ..
+          ls
+          cd /
+          ls
 
       - name: 變數
         run: |
