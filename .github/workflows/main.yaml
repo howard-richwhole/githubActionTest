@@ -28,7 +28,7 @@ jobs:
           BUILD_VERSION=1.0.`git rev-list HEAD --count`.$GITHUB_RUN_NUMBER
           echo "::set-output name=build_version::$BUILD_VERSION"
           echo "$IMAGE_NAME:$BUILD_VERSION"
-          echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep '\.github`"
+          echo "::set-output name=changed_lockfile::`git diff-tree --no-commit-id --name-only HEAD | grep '\.github'`"
 
       - name: 變數
         run: |
