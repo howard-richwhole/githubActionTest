@@ -53,8 +53,7 @@ jobs:
 
       - name: 結果
         if: ${{ steps.generate_build_version.outputs.changed_lockfile }}
-        run: |
-          [ ! -d "node_modules" ]  && npm ci
+        run: npm ci
 
 
 
