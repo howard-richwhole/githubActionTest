@@ -43,6 +43,7 @@ jobs:
           git diff-tree --no-commit-id --name-only HEAD
           echo ${{steps.generate_build_version.outputs.changed_lockfile}}
 
+
       - name: 結果
         if: ${{ steps.generate_build_version.outputs.changed_lockfile }}
         run: npm ci
