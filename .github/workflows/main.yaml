@@ -30,7 +30,7 @@ jobs:
       - name: 快取
         uses: actions/cache@v2
         with:
-          path: ${{github.workspace}}/node_modules
+          path: ${{github.workspace}}/node_modules2
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
